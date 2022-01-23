@@ -56,7 +56,7 @@ async def incoming_message_f(client, message):
     g_id = message.from_user.id
     u_men = message.from_user.mention
     credit = await message.reply_text(
-        f"<b><i>🛃 Working For 🛃:</i></b> {u_men}", parse_mode="html"
+        f"<b><i>📥 Working For 📥:</i></b> {u_men}", parse_mode="html"
     )
     # get link from the incoming message
     i_m_sefg = await message.reply_text("<code>Processing . . . 🔄</code>", quote=True)
@@ -153,7 +153,7 @@ async def incoming_youtube_dl_f(client, message):
     current_user_id = message.from_user.id
     u_men = message.from_user.mention
     credit = await message.reply_text(
-        f"<b><i>🛃 Working For 🛃:</i></b> {u_men}", parse_mode="html"
+        f"<b><i>📥 Working For 📥:</i></b> {u_men}", parse_mode="html"
     )
     i_m_sefg = await message.reply_text("<code>Prrocessing...🔃</code>", quote=True)
     # LOGGER.info(message)
@@ -297,10 +297,10 @@ async def rename_tg_file(client, message):
                 message_to_send += "\n"
             if message_to_send != "":
                 mention_req_user = (
-                    f"<a href='tg://user?id={usr_id}'><i>🗃 Your Uploaded Files !!</i></a>\n\n"
+                    f"<a href='tg://user?id={usr_id}'><i>🗂️ Your Uploaded Files !!</i></a>\n\n"
                 )
                 message_to_send = mention_req_user + message_to_send
-                message_to_send = message_to_send + "\n\n" + "#Uploads\n\n<b>💥 <i>Powered By : @JNS_BOTS ❤️</i> </b>"
+                message_to_send = message_to_send + "\n\n" + "#Uploads\n\n<b>🎉 <i>Powered By : @Prime_BotZ</i> </b>"
             else:
                 message_to_send = "<i>FAILED</i> to upload files. 😞😞"
             await message.reply_text(
