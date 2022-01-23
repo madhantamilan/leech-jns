@@ -41,13 +41,13 @@ from tobrot.UserDynaConfig import UserDynaConfig
 async def upload_as_doc(client, message):
     user_specific_config[message.from_user.id]=UserDynaConfig(message.from_user.id,True)
     u_men = message.from_user.mention
-    await message.reply_text(f"<i><b>👤 User : {u_men} \n\n🏷Toggle Changed : <code>Document 📂</code></b></i>")
+    await message.reply_text(f"<i><b>👤 User : {u_men} \n\n📌Toggle Changed : <code>Document 📂</code></b></i>")
 
 
 async def upload_as_video(client, message):
     user_specific_config[message.from_user.id]=UserDynaConfig(message.from_user.id,False)
     u_men = message.from_user.mention
-    await message.reply_text(f"<i><b>👤 User : {u_men}\n\n🏷Toggle Changed : <code>Video 🎞</code></b></i>")
+    await message.reply_text(f"<i><b>👤 User : {u_men}\n\n📌Toggle Changed : <code>Video 🎞</code></b></i>")
  
 
 async def status_message_f(
@@ -87,16 +87,16 @@ async def status_message_f(
 
                 percentage = int(file.progress_string(0).split('%')[0])
                 prog = "[{0}{1}]".format("".join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 5))]),"".join([UN_FINISHED_PROGRESS_STR for i in range(20 - math.floor(percentage / 5))]))
-                msg += f"<b>□■□■□■□■□■□■□■□</b>\n"
-                msg += f"\n<b>🔖Filename:</b> <code>{downloading_dir_name}</code>"
+                msg += f"<b>▬▬▬▬▬▬▬▬▬▬▬▬</b>\n"
+                msg += f"\n<b>📝Filename:</b> <code>{downloading_dir_name}</code>"
                 msg += f"\n<b>📡 Status</b>: <i>Downloading...📥</i>"
                 msg += f"\n<code>{prog}</code>"
-                msg += f"\n<b>🗃 Downloaded</b>: <code>{file.progress_string()}</code> <b>of</b> <code>{file.total_length_string()}</code>"
-                msg += f"\n<b>📊Speed</b>: <code>{file.download_speed_string()}</code>,"
-                msg += f"<b>🔍ETA:</b> <code>{file.eta_string()}</code>"  
+                msg += f"\n<b>📥 Downloaded</b>: <code>{file.progress_string()}</code> <b>of</b> <code>{file.total_length_string()}</code>"
+                msg += f"\n<b>🚀Speed</b>: <code>{file.download_speed_string()}</code>,"
+                msg += f"<b>⏲️ETA:</b> <code>{file.eta_string()}</code>"  
                 #umen = f'<a href="tg://user?id={file.message.from_user.id}">{file.message.from_user.first_name}</a>'
                 #msg += f"\n<b>👤User:</b> {umen} (<code>{file.message.from_user.id}</code>)"
-                #msg += f"\n<b>⚠️Warn:</b> <code>/warn {file.message.from_user.id}</code>"
+                #msg += f"\n<b>🚫Warn:</b> <code>/warn {file.message.from_user.id}</code>"
                 msg += f"\n{msgg}"
                 msg += f"\n<b>⛔ Cancel:</b> <code>/cancel {file.gid}</code>"
                 msg += "\n"
@@ -110,13 +110,13 @@ async def status_message_f(
         free = humanbytes(free)
 
         ms_g = (
-            f"<b>□■□■□■□■□■□■□■□</b>\n\n"
+            f"<b>▬▬▬▬▬▬▬▬▬▬▬</b>\n\n"
             f"<b>CPU:</b> <code>{cpu}%</code> | <b>RAM:</b> <code>{ram}%</code>\n"
             f"<b>FREE:</b> <code>{free}</code> | <b>UPTIME</b>: <code>{hr}h{mi}m{se}s</code>\n"
             f"<b>TOTAL:</b> <code>{total}</code> | <b>USED:</b> <code>{used}</code>\n"
         )
         if msg == "":
-            msg = "<b>😐□■□■□■□■□■□■□■□😐\n\n⚠️ No Active, Queued or Paused TORRENTs/Direct Links ⚠️</b>\n"
+            msg = "<b>😐▬▬▬▬▬▬▬▬▬▬▬▬😐\n\n⚠️ No Active, Queued or Paused TORRENTs/Direct Links ⚠️</b>\n"
             msg = msg + "\n" + ms_g
             await to_edit.edit(msg)
             #await asyncio.sleep(5)
